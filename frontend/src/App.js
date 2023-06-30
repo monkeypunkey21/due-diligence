@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home'
 import NavBar from './Components/NavBar'
+import PostForm from './Pages/PostForm';
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
           path="/"
           element={<Home/>}
           />
+          <Route
+          path="/form"
+          element={<PostForm/>}/>
         </Routes>
       </BrowserRouter>
     </div>

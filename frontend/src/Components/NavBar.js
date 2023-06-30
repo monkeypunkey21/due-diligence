@@ -12,6 +12,11 @@ const NavBar = () =>
                         Home
                     </Text>
                 </Link>
+                <Link to="/form">
+                    <Text>
+                        Post a sitting
+                    </Text>
+                </Link>
             </div>
         </header>
      )
