@@ -15,7 +15,9 @@ useEffect(() =>
     {
         const response = await fetch('http://localhost:4000/api/posts/')
         const json = await response.json()
-        setPosts(json)
+        
+        if (response.ok)
+            setPosts(json)
     }
 
     fetchPosts()
