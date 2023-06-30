@@ -17,6 +17,11 @@ const NavBar = () =>
                         Post a sitting
                     </Text>
                 </Link>
+                <Link to="/login">
+                    <Text>
+                        Login
+                    </Text>
+                </Link>
             </div>
         </header>
      )
