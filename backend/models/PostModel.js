@@ -5,6 +5,21 @@ const Schema = mongoose.Schema
 
 const PostSchema = new Schema(
     {
+        title: {
+            type: String,
+            required: true
+        },
+
+        animal: {
+            type: String,
+            required: true
+        },
+
+        pay: {
+            type: Number,
+            required: true
+        },
+
         message: {
             type: String,
             required: true
