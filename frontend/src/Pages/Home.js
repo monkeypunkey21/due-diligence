@@ -1,5 +1,6 @@
-import { Heading } from "@chakra-ui/layout"
+import { SimpleGrid } from "@chakra-ui/layout"
 import {useState, useEffect} from 'react'
+import PostDetails from '../Components/PostDetails'
 
 const Home = () =>
 {
@@ -21,14 +22,21 @@ useEffect(() =>
 }
 , [])
 
+
     return (
         <div>
-            <Heading>
-                Home
-            </Heading>
-
-        </div>
-    )
+           <SimpleGrid columns={2} spacing={10}>
+            {posts && posts.map((post) =>
+                (
+                    <PostDetails
+                    key = {post._id}
+                    post = {post}
+                    ></PostDetails>
+                )
+            )}
+            </SimpleGrid>
+            </div>
+        )
 }
 
 export default Home
