@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Stack, Image, Divider, Box, Button, Flex, IconButton, ButtonGroup } from '@chakra-ui/react'
 
-const PostDetails = ({post, key}) =>
+const PostDetails = ({post}) =>
 {
 
     return (
