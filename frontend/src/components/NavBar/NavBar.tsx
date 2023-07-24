@@ -3,6 +3,7 @@ import Link from "next/link"
 import React from "react"
 import AuthContent from "./AuthContent"
 import SearchBar from "./SearchBar"
+import PostForm from './PostForm'
 
 const NavBar : React.FC = () =>
 {
@@ -14,6 +15,9 @@ const NavBar : React.FC = () =>
                 <Link href = '/'>Home</Link>
             </Flex>
             <SearchBar/>
+            <Link href = '/create'>
+                <PostForm/>
+            </Link>
             <AuthContent/> 
         </Flex>
     );
