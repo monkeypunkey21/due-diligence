@@ -1,7 +1,14 @@
+import React from "react";
 
-const Login = () =>
+interface LoginProps {
+    
+}
+
+const Login: React.FC = () =>
 {
+    return (
 
+    )
 }
 
 export default Login;

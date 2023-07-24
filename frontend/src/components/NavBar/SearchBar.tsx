@@ -5,7 +5,7 @@ import React from "react";
 const SearchBar: React.FC = () =>
 {
     return (
-        <Flex flexGrow={1} marginRight={2} align='center' ml={2} mt={2}>
+        <Flex flexGrow={1} marginRight={2} align='center' ml={2}>
             <InputGroup>
                 <InputLeftElement
                 pointerEvents='none'
