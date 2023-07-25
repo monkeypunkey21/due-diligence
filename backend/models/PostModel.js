@@ -5,12 +5,12 @@ const Schema = mongoose.Schema
 
 const PostSchema = new Schema(
     {
-        message: {
+        title: {
             type: String,
             required: true
         },
 
-        location: {
+        body: {
             type: String,
             required: true
         },
