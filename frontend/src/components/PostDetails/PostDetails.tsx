@@ -6,8 +6,8 @@ interface PostDetailsProps {
         title: string;
         img?: string;
         body: string;
-        comments: Number;
-        likes: Number;
+        //comments: Number;
+        //likes: Number;
     };
 }
 
@@ -44,3 +44,5 @@ const PostDetails:React.FC<PostDetailsProps> = ({post}: PostDetailsProps) =>
  
     )
 }
+
+export default PostDetails

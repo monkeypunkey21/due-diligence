@@ -31,6 +31,7 @@ const LoginModal: React.FC = () =>
         const response = await fetch('http://localhost:4000/api/users/login',
         {
             method: "POST",
+            credentials: "include",
             body: JSON.stringify(newUser),
             headers: {
                 'Content-Type': 'application/json'
