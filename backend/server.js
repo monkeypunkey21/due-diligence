@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const { error } = require('console')
 const {getPost, getPosts, createPost} = require('./controllers/PostController')
-const {getUser, createUser, updateUser, deleteUser} = require('./controllers/UserController')
+const {getUser, createUser, updateUser, deleteUser, loginUser} = require('./controllers/UserController')
+const {authenticateToken} = require('./middleware/AuthToken');
 
 require('dotenv').config()
 
@@ -26,6 +27,7 @@ app.use((req, res, next) =>
 })
 
 
+
 /*============== Routes ===================*/
 
 
@@ -36,6 +38,8 @@ app.get('/api/users/:id', getUser)
 
 //Create user
 app.post('/api/users/', createUser)
+
+app.post('/api/users/login', loginUser)
 
 //Update user
 app.patch('/api/users/:id', updateUser)
