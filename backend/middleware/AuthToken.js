@@ -3,21 +3,21 @@ const jwt = require('jsonwebtoken');
 
 const authenticateToken = (req, res, next) =>
 {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = req.cookies.token;
 
     if (token == null)
-        return res.status(401);
+        return res.status(401).json({error: "Token not found"});
 
-    jwt.verify(token, process.env.TOKEN_KEY, (err, user) =>
-    {
-        if (err)
-            return res.status(400);
-
+    try {
+        const user = jwt.verify(token, process.env.TOKEN_KEY);
         req.user = user;
-
         next();
-    });
+    } catch (error)
+    {
+        res.status(403).json({error: "token not verified"});
+    }
+
+    
 }
 
 module.exports = {authenticateToken}

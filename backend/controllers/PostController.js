@@ -6,21 +6,9 @@ const {PostModel} = require('../models/PostModel')
 const getPosts = async (req, res) =>
 {
     
-    /*distance = req.body.distance*/
-
-    const euclid_dist = (x1,y1,z1, x2, y2, z2) =>
-    {
-        return Math.sqrt((x1 * x1 - x2 * x2 + y1 * y1 - y2 * y2 + z1 * z1 - z2 * z2))
-    }
-
     try{
         const posts = await PostModel.find({})
-        /*posts.filter(
-            (post) =>
-            {
-                return euclid_dist(post.location) <= distance
-            } 
-        ) */
+
         res.status(200).json(posts)
     } catch (error)
     {
@@ -30,8 +18,11 @@ const getPosts = async (req, res) =>
 
 const createPost = async (req, res) =>
 {
+
+    const userID = req.user._id;
+
     try{
-        const post = await PostModel.create({...req.body})
+        const post = await PostModel.create({...req.body, user: userID})
         res.status(200).json(post)
     } catch (error)
     {

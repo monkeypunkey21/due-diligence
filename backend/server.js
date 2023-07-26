@@ -6,6 +6,7 @@ const { error } = require('console')
 const {getPost, getPosts, createPost} = require('./controllers/PostController')
 const {getUser, createUser, updateUser, deleteUser, loginUser} = require('./controllers/UserController')
 const {authenticateToken} = require('./middleware/AuthToken');
+const cookieParser = require('cookie-parser')
 
 require('dotenv').config()
 
@@ -15,7 +16,10 @@ const app = express()
 
 /*==============MiddleWare===================*/
 
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}))
 
 app.use(express.json())
 
@@ -26,6 +30,7 @@ app.use((req, res, next) =>
     next()
 })
 
+app.use(cookieParser())
 
 
 /*============== Routes ===================*/
@@ -53,7 +58,7 @@ app.delete('/api/users/:id', deleteUser)
 app.get('/api/posts/', getPosts)
 
 //Create a post
-app.post('/api/posts/', createPost)
+app.post('/api/posts/', authenticateToken, createPost)
 
 //Get a specific post
 app.get('/api/posts/:id', getPost)
