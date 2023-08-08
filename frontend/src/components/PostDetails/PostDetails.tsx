@@ -1,26 +1,31 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Stack, Image, Divider, Box, Button, Flex, IconButton, ButtonGroup } from '@chakra-ui/react'
+import { Card, CardHeader, Flex, Heading, CardBody, Stack, Divider, CardFooter, ButtonGroup, Button, Box, Text } from "@chakra-ui/react";
+import React from "react"
 
-const PostDetails = ({post, key}) =>
+interface PostDetailsProps {
+    post: {
+        title: string;
+        img?: string;
+        body: string;
+        //comments: Number;
+        //likes: Number;
+    };
+}
+
+const PostDetails:React.FC<PostDetailsProps> = ({post}: PostDetailsProps) =>
 {
-
     return (
             <Card maxW='sm'>
                 <CardHeader >
                     <Flex>
                     <Box>
-                        <Heading size='sm'>Post</Heading>
-                        <Text>in {post.location}</Text>
+                        <Heading size='sm'>{post.title}</Heading>
                     </Box>                 
                     </Flex>
                 </CardHeader>
                 <CardBody>
-                    <Image
-                    src='https://i.pinimg.com/736x/b2/13/6a/b2136ab4fdaa032b5ebdf2642ccaad00.jpg'
-                    borderRadius='lg'              
-                    />
                     <Stack mt='6' spacing='3'>
-                        <Text>
-                            {post.message}
+                        <Text className="overflow-hidden overflow-ellipsis whitespace-nowrap max-w-md">
+                            {post.body}
                         </Text>
                     </Stack>
                 </CardBody>
@@ -36,8 +41,8 @@ const PostDetails = ({post, key}) =>
                     </ButtonGroup>
                 </CardFooter>
             </Card>
+ 
     )
-
 }
 
 export default PostDetails
